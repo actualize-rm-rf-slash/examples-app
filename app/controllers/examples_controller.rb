@@ -7,4 +7,16 @@ class ExamplesController < ApplicationController
     ]
     render json: {fortune: fortunes.sample}
   end
+
+  def lotto_method
+    numbers = []
+    6.times do
+      # TODO: add if condition to avoid duplicate numbers...
+      numbers << rand(1..60)
+    end
+    render json: {
+      lotto_numbers: numbers,
+      message: "Not realistically usable results..."
+    }
+  end
 end
