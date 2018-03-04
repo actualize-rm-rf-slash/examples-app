@@ -1,4 +1,6 @@
 class ExamplesController < ApplicationController
+  @@count = 0
+
   def fortune_method
     fortunes = [
       "You will be a billionaire.",
@@ -18,5 +20,10 @@ class ExamplesController < ApplicationController
       lotto_numbers: numbers,
       message: "Not realistically usable results..."
     }
+  end
+
+  def counter_method
+    @@count = @@count + 1
+    render json: {number_of_visits: @@count}
   end
 end
